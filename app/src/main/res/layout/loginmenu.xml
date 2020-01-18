@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tracker"
+        android:text="menu"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,19 +20,25 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="208dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="196dp"
+        android:onClick="login"
         android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        tools:layout_editor_absoluteX="81dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginBottom="196dp"
+        android:onClick="signup"
         android:text="SignUp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="241dp" />
+        app:layout_constraintStart_toEndOf="@+id/button" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
