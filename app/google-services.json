@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "829476512660",
+    "firebase_url": "https://mobiletracker-d4f90.firebaseio.com",
+    "project_id": "mobiletracker-d4f90",
+    "storage_bucket": "mobiletracker-d4f90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829476512660:android:2ef8e39ca6f4ff8c29a581",
+        "android_client_info": {
+          "package_name": "com.example.childtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829476512660-j8v3r0mtn3rna7u0lnf72ma05nngnqer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx6063vuFIBCXQdrKfNEuG0v6GCp_9Cc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829476512660-j8v3r0mtn3rna7u0lnf72ma05nngnqer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829476512660:android:ab19122eada1433229a581",
+        "android_client_info": {
+          "package_name": "com.example.mobiletracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829476512660-j8v3r0mtn3rna7u0lnf72ma05nngnqer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx6063vuFIBCXQdrKfNEuG0v6GCp_9Cc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829476512660-j8v3r0mtn3rna7u0lnf72ma05nngnqer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

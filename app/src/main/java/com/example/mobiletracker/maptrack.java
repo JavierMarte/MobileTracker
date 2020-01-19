@@ -3,10 +3,15 @@ package com.example.mobiletracker;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,6 +36,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -94,6 +101,51 @@ public class maptrack extends FragmentActivity implements
 
         }
 
+        public void update(View view){
+
+
+            Firebase.setAndroidContext(this);
+
+            Firebase myFirebaseRef = new Firebase("https://mobiletracker-d4f90.firebaseio.com/");
+
+
+
+            // cellphone = (EditText) findViewById(R.id.editcellphone);
+            // schoolemail = (EditText) findViewById(R.id.editschoolemail);
+
+            myFirebaseRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                    System.out.println(dataSnapshot.child("123").child("lat").getValue());
+                    System.out.println(dataSnapshot.child("123").child("lon").getValue());
+                    lat = Double.parseDouble(dataSnapshot.child("123").child("lat").getValue().toString());
+                    lon = Double.parseDouble(dataSnapshot.child("123").child("lon").getValue().toString());
+                    LatLng sydney = new LatLng(lat, lon);
+                    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                    Toast.makeText(getApplicationContext(),"error uploading to server!!", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+            });
+
+
+            //System.out.println(password.getText().toString());
+
+
+
+        }
+
         private void enableMyLocation() {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
@@ -128,14 +180,14 @@ public class maptrack extends FragmentActivity implements
         public void onLocationChanged(Location location) {
 
 
-            System.out.println("lat:" + location.getLatitude());
-            System.out.println(location.getLongitude());
-            lat = location.getLatitude();
-            lon = location.getLongitude();
-
-            LatLng sydney = new LatLng(lat, lon);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//            System.out.println("lat:" + location.getLatitude());
+//            System.out.println(location.getLongitude());
+//            lat = location.getLatitude();
+//            lon = location.getLongitude();
+//
+//            LatLng sydney = new LatLng(lat, lon);
+//            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
+//            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 
         @Override

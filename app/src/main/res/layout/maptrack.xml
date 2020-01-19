@@ -49,4 +49,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="413dp" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:onClick="update"
+        android:text="update"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        tools:layout_editor_absoluteX="171dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
