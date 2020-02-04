@@ -21,6 +21,8 @@ public class loginmenu extends AppCompatActivity {
 
         startActivity(intent);
 
+
+
     }
 
     public void signup(View view) {

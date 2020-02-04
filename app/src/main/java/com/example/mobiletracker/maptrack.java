@@ -186,7 +186,8 @@ public class maptrack extends FragmentActivity implements
 //            lon = location.getLongitude();
 //
 //            LatLng sydney = new LatLng(lat, lon);
-//            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
+//            mMap.addMarker(new MarkerOptions().position(sydney
+//            ).title("Marker in BCC"));
 //            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 
