@@ -49,7 +49,7 @@ public class maptrack extends FragmentActivity implements
 
     private GoogleMap mMap;
     protected LocationManager locationManager;
-    // private FusedLocationProviderClient fusedLocationClient;
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     double lat = 50;
@@ -61,18 +61,16 @@ public class maptrack extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maptrack);
+
         View decorView = getWindow().getDecorView();
-// Hide both the navigation bar and the status bar.
-// SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-// a general rule, you should design your app to hide the status bar whenever you
-// hide the navigation bar.
+//sets screen size to full screen
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
 
-        //fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+        //ask user for permission to use location
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    Activity#requestPermissions
@@ -92,6 +90,7 @@ public class maptrack extends FragmentActivity implements
             mapFragment.getMapAsync(this);
         }
 
+        //when map is ready the locattion and marker is set
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
@@ -108,10 +107,10 @@ public class maptrack extends FragmentActivity implements
 
 
         }
-
+    //as soon as update button is clicked we retrieve lat and lon and set markers and camera
         public void update(View view){
 
-
+            //retrieve info from  database
             Firebase.setAndroidContext(this);
 
             Firebase myFirebaseRef = new Firebase("https://mobiletracker-d4f90.firebaseio.com/");
@@ -148,12 +147,9 @@ public class maptrack extends FragmentActivity implements
             });
 
 
-            //System.out.println(password.getText().toString());
-
-
 
         }
-
+    //enables the location of person when permission granted
         private void enableMyLocation() {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
@@ -170,7 +166,7 @@ public class maptrack extends FragmentActivity implements
         public boolean onMyLocationButtonClick() {
             return false;
         }
-
+//as soon as location is clicked we retrieve lat and lon and set markers and camera
         @Override
         public void onMyLocationClick(@NonNull Location location) {
 
@@ -188,15 +184,6 @@ public class maptrack extends FragmentActivity implements
         public void onLocationChanged(Location location) {
 
 
-//            System.out.println("lat:" + location.getLatitude());
-//            System.out.println(location.getLongitude());
-//            lat = location.getLatitude();
-//            lon = location.getLongitude();
-//
-//            LatLng sydney = new LatLng(lat, lon);
-//            mMap.addMarker(new MarkerOptions().position(sydney
-//            ).title("Marker in BCC"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 
         @Override

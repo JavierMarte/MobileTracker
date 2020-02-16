@@ -19,20 +19,17 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
         View decorView = getWindow().getDecorView();
-// Hide both the navigation bar and the status bar.
-// SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-// a general rule, you should design your app to hide the status bar whenever you
-// hide the navigation bar.
+//flag for making android layout a full screan
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-
+//gets background id and sets it to an animated video
         rootLayout = (ConstraintLayout) findViewById(R.id.rootlayout);
         animDrawable = (AnimationDrawable) rootLayout.getBackground();
         animDrawable.setEnterFadeDuration(10);
 
         animDrawable.setExitFadeDuration(5000);
         animDrawable.start();
-
+// loads animation
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.stripe_anim);
         LinearLayout stripes = (LinearLayout) findViewById(R.id.stripes);
 
@@ -40,10 +37,7 @@ public class signup extends AppCompatActivity {
     }
 
 
-    public void submit(View view) {
-
-
-
+    public void enter(View view) {
         //id
 
         //password
@@ -52,19 +46,9 @@ public class signup extends AppCompatActivity {
 
         //chekc database for dupilicates
 
-
-
-        Intent intent = new Intent(this, signup.class);
+        Intent intent = new Intent(this, maptrack.class);
 
         startActivity(intent);
-
-    }
-
-    public void signup(View view) {
-
-        // Intent intent = new Intent(this, memberorexec.class);
-
-        //  startActivity(intent);
 
     }
 

@@ -20,14 +20,11 @@ public class loginmenu extends AppCompatActivity {
         setContentView(R.layout.loginmenu);
 
         View decorView = getWindow().getDecorView();
-// Hide both the navigation bar and the status bar.
-// SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-// a general rule, you should design your app to hide the status bar whenever you
-// hide the navigation bar.
+//flag for making android layout a full screan
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-
+//gets background id and sets it to an animated video
         rootLayout = (ConstraintLayout) findViewById(R.id.rootlayout);
         animDrawable = (AnimationDrawable) rootLayout.getBackground();
         animDrawable.setEnterFadeDuration(10);
@@ -41,7 +38,7 @@ public class loginmenu extends AppCompatActivity {
         stripes.startAnimation(anim);
     }
 
-
+    //goes into next window which is login screan.
     public void login(View view) {
 
         Intent intent = new Intent(this, login.class);
@@ -51,7 +48,7 @@ public class loginmenu extends AppCompatActivity {
 
 
     }
-
+    //goes into next window which is signup screan.
     public void signup(View view) {
 
          Intent intent = new Intent(this, signup.class);

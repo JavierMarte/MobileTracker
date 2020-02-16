@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootlayout"
     android:background="@drawable/gradient_animation"
-    tools:context=".MainActivity">
+    tools:context=".signup">
     
     <LinearLayout
         android:id="@+id/stripes"
