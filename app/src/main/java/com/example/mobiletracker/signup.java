@@ -6,10 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class signup extends AppCompatActivity {
     private ConstraintLayout rootLayout;
@@ -45,6 +52,39 @@ public class signup extends AppCompatActivity {
         //check if form is empty
 
         //chekc database for dupilicates
+
+        Firebase.setAndroidContext(this);
+
+        Firebase myFirebaseRef = new Firebase("https://mobiletracker-d4f90.firebaseio.com/");
+
+
+
+        EditText username  = (EditText) findViewById(R.id.username);
+
+        EditText password  = (EditText) findViewById(R.id.password);
+
+
+        myFirebaseRef.child(username.getText().toString()).setValue(password.getText().toString());
+
+
+        myFirebaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println(dataSnapshot.getValue());
+
+                Toast.makeText(getApplicationContext(),"uploaded to server!!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+                Toast.makeText(getApplicationContext(),"error uploading to server!!", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
 
         Intent intent = new Intent(this, maptrack.class);
 
