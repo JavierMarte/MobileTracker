@@ -45,13 +45,8 @@ public class signup extends AppCompatActivity {
 
 
     public void enter(View view) {
-        //id
 
-        //password
-
-        //check if form is empty
-
-        //chekc database for dupilicates
+        //not checking for duplicates
 
         Firebase.setAndroidContext(this);
 

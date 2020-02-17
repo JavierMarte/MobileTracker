@@ -124,18 +124,24 @@ public class maptrack extends FragmentActivity implements
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-
+                    //print out for loggint perposes
                     System.out.println(dataSnapshot.child("123").child("lat").getValue());
                     System.out.println(dataSnapshot.child("123").child("lon").getValue());
+
+                    //gets latitude and longitutide
                     lat = Double.parseDouble(dataSnapshot.child("123").child("lat").getValue().toString());
                     lon = Double.parseDouble(dataSnapshot.child("123").child("lon").getValue().toString());
                     LatLng sydney = new LatLng(lat, lon);
+
+                    //sets google markers
                     mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
 
                 }
 
+
+                //if database doesn't get request it will populate an error
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
 
@@ -171,7 +177,8 @@ public class maptrack extends FragmentActivity implements
         public void onMyLocationClick(@NonNull Location location) {
 
             System.out.println("lat:" + location.getLatitude());
-            System.out.println(location.getLongitude());
+            System.out.println("lon:" + location.getLongitude());
+
             lat = location.getLatitude();
             lon = location.getLongitude();
 
@@ -179,23 +186,23 @@ public class maptrack extends FragmentActivity implements
             mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BCC"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
-
+    //not using this
         @Override
         public void onLocationChanged(Location location) {
 
 
         }
-
+    //not using this
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
 
         }
-
+    //not using this
         @Override
         public void onProviderEnabled(String provider) {
 
         }
-
+//not using this
         @Override
         public void onProviderDisabled(String provider) {
 
